@@ -108,10 +108,24 @@ namespace AB1
                     return;
                 }
             }
-            public void Print(ref string newstring)
+            public void Print(Node N, ref string s)
             {
                 // write oout the tree in sorted order to the string newstring
                 // implement using recursion
+                if(N == null) { N = top; }
+                if (N.left != null)
+                {
+                    Print(N.left, ref s);
+                    s = s + N.value.ToString().PadLeft(3);
+                }
+                else
+                {
+                    s = s + N.value.ToString().PadLeft(3);
+                }
+                if (N.right != null)
+                {
+                    Print(N.right, ref s);
+                }
             }
         }
     }
